@@ -9,9 +9,9 @@
 - Java 17
 - Spring Boot 3.5.3
 - Spring Web / Spring Data JPA
-- Spring Security
+- JWT
 - Lombok / Validation
-- SQL
+- MySQL
 - Postman (API 테스트용)
 - JUnit 5 / AssertJ / Spring Boot Test (테스트 코드 작성용)
 
