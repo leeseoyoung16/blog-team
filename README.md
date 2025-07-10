@@ -23,7 +23,7 @@
 - Java 17
 - Spring Boot 3.5.3
 - Spring Web / Spring Data JPA
-- JWT
+- JWT / Spring Security
 - Lombok / Validation
 - MySQL
 - Postman (API 테스트용)
