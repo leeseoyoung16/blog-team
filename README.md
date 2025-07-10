@@ -4,7 +4,8 @@
 
 ---
 ## 📝 User Flow
-![최종_다이어그램 drawio](https://github.com/user-attachments/assets/7fa51f19-32be-494c-b5e5-1ee86a439849)
+<img width="1619" height="836" alt="최종_다이어그램 drawio" src="https://github.com/user-attachments/assets/8d0e124d-4d28-4d70-b7fc-fd94b2c2d314" />
+
 
 ---
 ## 🛠️ 진행 상황
