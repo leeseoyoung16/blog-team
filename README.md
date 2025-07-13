@@ -3,15 +3,6 @@
 이 프로젝트는 백엔드 1명, 프론트엔드 1명이 협업하여 개발하는 소규모 블로그 서비스입니다.  
 
 ---
-## 📝 User Flow
-<img width="1619" height="836" alt="최종_다이어그램 drawio" src="https://github.com/user-attachments/assets/8d0e124d-4d28-4d70-b7fc-fd94b2c2d314" />
-
----
-## 📃 ERD diagram
-<img width="499" height="631" alt="ERD drawio" src="https://github.com/user-attachments/assets/b3886895-82a4-4af0-94eb-f3eb6ec8302b" />
-
-
----
 ## 🛠️ 진행 상황
 
 | 차시 | 항목 | 상태 | 비고 |
