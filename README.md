@@ -49,4 +49,4 @@
 
 ---
 ## 📖 프로젝트 정리
-[노션 페이지]([https://www.notion.so/Blog-22fc59509498809b8429c83931d7b26a?source=copy_link](https://longhaired-stove-0a0.notion.site/Blog-22fc59509498809b8429c83931d7b26a))
+[노션 페이지](https://longhaired-stove-0a0.notion.site/Blog-22fc59509498809b8429c83931d7b26a)
