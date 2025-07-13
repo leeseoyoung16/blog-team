@@ -8,7 +8,7 @@
 
 ---
 ## 📃 ERD diagram
-<img width="471" height="631" alt="ERD drawio" src="https://github.com/user-attachments/assets/e5ff3caf-7828-4beb-a88a-9e38d47583c4" />
+<img width="499" height="631" alt="ERD drawio" src="https://github.com/user-attachments/assets/b3886895-82a4-4af0-94eb-f3eb6ec8302b" />
 
 
 ---
