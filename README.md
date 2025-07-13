@@ -6,6 +6,10 @@
 ## 📝 User Flow
 <img width="1619" height="836" alt="최종_다이어그램 drawio" src="https://github.com/user-attachments/assets/8d0e124d-4d28-4d70-b7fc-fd94b2c2d314" />
 
+---
+## 📃 ERD diagram
+<img width="471" height="631" alt="ERD drawio" src="https://github.com/user-attachments/assets/e5ff3caf-7828-4beb-a88a-9e38d47583c4" />
+
 
 ---
 ## 🛠️ 진행 상황
