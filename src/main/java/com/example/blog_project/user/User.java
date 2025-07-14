@@ -2,12 +2,18 @@ package com.example.blog_project.user;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.example.blog_project.post.Post;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@Table(name="users")
+@NoArgsConstructor
+@Table(name = "users")
 public class User
 {
     @Id
@@ -24,4 +30,7 @@ public class User
     private String email;
 
     private Role role;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Post> posts = new ArrayList<>();
 }

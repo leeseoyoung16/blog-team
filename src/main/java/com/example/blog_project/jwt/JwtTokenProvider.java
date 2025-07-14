@@ -1,5 +1,8 @@
 package com.example.blog_project.jwt;
 
+import com.example.blog_project.CustomUserDetails;
+import com.example.blog_project.user.User;
+import com.example.blog_project.user.UserRepository;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
@@ -12,8 +15,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -28,6 +30,7 @@ import java.util.stream.Collectors;
 public class JwtTokenProvider
 {
 
+    private final UserRepository userRepository;
     @Value("${jwt.secret}")
     private String secretKeyString;
 
@@ -40,6 +43,7 @@ public class JwtTokenProvider
 
     private static final Logger log = LoggerFactory.getLogger(JwtTokenProvider.class);
 
+    // 스프링 객체 생성 후 초기화 시 실행
     @PostConstruct
     public void init() {
         String base64EncodeSecretKey =
@@ -48,39 +52,21 @@ public class JwtTokenProvider
         this.tokenValidityInMilliseconds = tokenValidityInSeconds * 1000L;
     }
 
-    public String generateToken(Authentication authentication) {
-        String username = authentication.getName();
-
-        String authorities = authentication.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(","));
-
-        long now = (new Date()).getTime();
-        Date validity = new Date(now + tokenValidityInMilliseconds);
-
-        return Jwts.builder()
-                .setSubject(username)
-                .claim("auth", authorities)
-                .setIssuedAt(new Date(now))
-                .setExpiration(validity)
-                .signWith(this.key, SignatureAlgorithm.HS256)
-                .compact();
-    }
-
+    // JWT를 생성 후, 반환
     public String generateToken(String username, String role) {
         long now = (new Date()).getTime();
-        Date validity = new Date(now + tokenValidityInMilliseconds);
+        Date validity = new Date(now + tokenValidityInMilliseconds); //토큰 생성 시간
 
         return Jwts.builder()
-                .setSubject(username)
-                .claim("auth", role)
-                .setIssuedAt(new Date(now))
-                .setExpiration(validity)
-                .signWith(this.key, SignatureAlgorithm.HS256)
+                .setSubject(username) //주체
+                .claim("auth", role) //권한
+                .setIssuedAt(new Date(now)) //발급 시간
+                .setExpiration(validity) //토큰 만료 시간
+                .signWith(this.key, SignatureAlgorithm.HS256) // 서명에 사용할 키와, 방식
                 .compact();
     }
 
-
+    // 토큰 유효 검증
     public boolean validateToken(String token)
     {
         try {
@@ -101,17 +87,24 @@ public class JwtTokenProvider
 
     }
 
+    // JWT를 스프링 시큐리티의 Authentication으로 변환
     public Authentication getAuthentication(String token) {
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
+
+        String username = claims.getSubject();
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("존재하지 않는 사용자입니다."));
+
+        CustomUserDetails userDetails = new CustomUserDetails(user);
+
         Collection<? extends GrantedAuthority> authorities =
                 Arrays.stream(claims.get("auth").toString().split(","))
                         .map(SimpleGrantedAuthority::new)
                         .collect(Collectors.toList());
-        UserDetails principal = new User(claims.getSubject(),"",authorities);
-        return new UsernamePasswordAuthenticationToken(principal,token,authorities);
+        return new UsernamePasswordAuthenticationToken(userDetails,token,authorities);
     }
 }
