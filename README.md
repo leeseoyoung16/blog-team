@@ -35,6 +35,15 @@
 | POST   | `/auth/signup`   | 회원 가입      |
 | POST   | `/auth/login`   | 로그인      |
 
+### 📄 게시글
+| 메서드 | URI            | 설명             |
+|--------|----------------|------------------|
+| POST   | `/posts`   | 게시글 등록       |
+| GET   | `/posts`    | 전체 게시글 조회    |
+| GET   | `/posts/user/{username}`    | 특정 사용자 게시글 조회    |
+| GET   | `/posts/{postId}`    | 게시글 단건 조회    |
+| DELETE   | `/posts/{postId}`   | 게시글 삭제       |
+| PUT   | `/posts/{postId}`   | 게시글 수정       |
 
 
 
