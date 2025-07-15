@@ -45,6 +45,13 @@
 | DELETE   | `/posts/{postId}`   | 게시글 삭제       |
 | PUT   | `/posts/{postId}`   | 게시글 수정       |
 
+### 🗨️ 댓글
+| 메서드 | URI            | 설명             |
+|--------|----------------|------------------|
+| POST   | `/posts/{postId}/comments`   | 댓글 등록       |
+| GET   | `/posts/{postId}/comments`    | 해당 게시글 댓글 전체 조회   |
+| DELETE   | `/posts/{postId}/comments/{commentId}`   | 댓글 삭제       |
+| PUT   | `/posts/{postId}/comments/{commentId}`   | 댓글 수정       |
 
 
 ---
