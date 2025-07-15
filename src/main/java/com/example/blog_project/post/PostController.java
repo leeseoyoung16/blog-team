@@ -61,7 +61,7 @@ public class PostController
                                                @AuthenticationPrincipal CustomUserDetails userDetails)
     {
         postService.delete(postId, userDetails.getUser().getId());
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{postId}")

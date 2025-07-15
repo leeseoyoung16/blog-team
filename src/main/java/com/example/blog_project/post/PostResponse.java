@@ -14,6 +14,7 @@ public class PostResponse
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private int views;
+    private int commentCount;
 
     public PostResponse (Post post) {
         this.id = post.getId();
@@ -23,5 +24,6 @@ public class PostResponse
         this.createdAt = post.getCreatedAt();
         this.updatedAt = post.getUpdatedAt();
         this.views = post.getViews();
+        this.commentCount = post.getComments().size();
     }
 }
