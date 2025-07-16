@@ -1,6 +1,7 @@
 package com.example.blog_project.post;
 
 import com.example.blog_project.comment.Comment;
+import com.example.blog_project.like.Like;
 import com.example.blog_project.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -39,6 +40,9 @@ public class Post
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Like> likes = new ArrayList<>();
 
     @PrePersist
     protected void onCreate()
