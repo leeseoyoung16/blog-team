@@ -61,4 +61,6 @@
 
 ---
 ## 📖 프로젝트 정리
+- 프로젝트에 대한 ERD 및 유저플로우 등이 정리되어 있습니다.
+  
 [노션 페이지](https://longhaired-stove-0a0.notion.site/Blog-22fc59509498809b8429c83931d7b26a)
