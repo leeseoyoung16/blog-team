@@ -55,11 +55,6 @@ public class CommentService
                 .orElseThrow(() -> new EntityNotFoundException("해당 댓글이 존재하지 않습니다."));
 
         Long commentOwnerId = comment.getUser().getId();
-
-        System.out.println("comment 작성자 ID: " + commentOwnerId);
-        System.out.println("현재 로그인 사용자 ID: " + userId);
-        System.out.println("같은가? -> " + commentOwnerId.equals(userId));
-
         if(!comment.getUser().getId().equals(userId)) {
             throw new AccessDeniedException("본인의 댓글만 삭제할 수 있습니다.");
         }
