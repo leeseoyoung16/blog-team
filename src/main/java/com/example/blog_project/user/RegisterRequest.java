@@ -3,12 +3,14 @@ package com.example.blog_project.user;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public class RegisterRequest
 {
-    @Size(min =2, max=15, message = "ID는 2자 이상 15자 이하여야 합니다.")
+    @Size(min = 2, max = 15, message = "ID는 2자 이상 15자 이하여야 합니다.")
     @NotBlank(message = "ID는 필수입니다.")
     private String username;
 

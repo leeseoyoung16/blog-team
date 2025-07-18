@@ -17,7 +17,7 @@ public class UserController
     private final UserService userService;
 
     //회원가입
-    @PostMapping("/signin")
+    @PostMapping("/signup")
     public ResponseEntity<Void> signin(@Valid @RequestBody RegisterRequest request) {
         userService.register(request.getUsername(), request.getPassword(), request.getEmail());
         return ResponseEntity.status(HttpStatus.CREATED).build();
