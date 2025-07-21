@@ -1,8 +1,10 @@
 package com.example.blog_project.post;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@AllArgsConstructor
 @Getter
 public class PostRequest
 {
